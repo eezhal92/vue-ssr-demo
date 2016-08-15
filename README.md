@@ -1,4 +1,4 @@
-# latzee-client
+# vue-ssr-demo
 
 > A Vue.js project
 
