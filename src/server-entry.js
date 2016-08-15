@@ -1,5 +1,5 @@
 import { app, store, router } from './main'
-
+import serialize from 'serialize-javascript'
 const isDev = process.env.NODE_ENV !== 'production'
 
 export default context => {

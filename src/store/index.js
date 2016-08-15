@@ -9,7 +9,8 @@ const store = new Vuex.Store({
   strict: true,
   state: {
     notes: {
-      items: []
+      items: [],
+      fetched: false
     }
   },
   actions: actions,
