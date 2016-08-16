@@ -10,11 +10,11 @@ import {
 
 export default {
   [types.FETCH_NOTES]: ({ commit, state, getters, dispatch }) => {
-    if (state.notes.items.length === 0 && !state.notes.loaded) {
+    if (state.notes.items.length === 0 && !state.notes.fetched) {
       let notes = api.fetchNotes().then((notes) => {
         commit(ADD_NOTES, { notes })
       }).then(() => {
-        commit(SET_FETCHED_FLAG, true)
+        commit(SET_FETCHED_FLAG, { flag: true })
       })
     }
   },

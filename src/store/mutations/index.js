@@ -31,6 +31,6 @@ export default {
     })
   },
   SET_FETCHED_FLAG: ( { notes }, { flag }) => {
-    notes.isFetched = flag
+    notes.fetched = flag
   }
 }
