@@ -1,7 +1,9 @@
+const webpack = require('webpack')
 const path = require('path')
+const vueConfig = require('./vue-loader.config')
 
 module.exports = {
-  devtools: '#source-map',
+  devtool: '#source-map',
   entry: {
     app: './src/client-entry.js',
     vendor: ['vue', 'vue-router', 'vuex', 'es6-promise', 'lru-cache']
@@ -10,9 +12,6 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
     filename: 'client-bundle.js'
-  },
-  resolveLoader: {
-    root: path.join(__dirname, '../node_modules'),
   },
   module: {
     loaders: [
@@ -35,5 +34,9 @@ module.exports = {
       }
     ]
   },
-  vue: {}
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      vue: vueConfig
+    })
+  ]
 }
