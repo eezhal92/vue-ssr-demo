@@ -1,21 +1,3 @@
-<template>
-  <div class="note-card row shadow-1 col-xs-4" :style="{ 'background-color': note.color }">
-    <div class="icon"
-         @click="markNote"
-         :style="{ 'background-color': note.color }"
-         v-show="!note.done"
-    >
-      <i class="material-icons">check</i>
-    </div>
-    <div class="col-xs-12 title">
-      {{ note.title }}
-    </div>
-    <div class="col-xs-12 value">
-      {{ note.description }}
-    </div>
-  </div>
-</template>
-
 <script>
 import { MARK_NOTE } from '../store/actions/types'
 export default {
@@ -30,6 +12,24 @@ export default {
     markNote (id) {
       this.$store.dispatch(MARK_NOTE, this.note.id)
     }
+  },
+  render (h) {
+    return (
+      <div class="note-card row shadow-1 col-xs-4">
+        <div class="icon"
+             @click={this.markNote}
+             v-show={!this.note.done}
+        >
+          <i class="material-icons">check</i>
+        </div>
+        <div class="col-xs-12 title">
+          {this.note.title}
+        </div>
+        <div class="col-xs-12 value">
+          {this.note.description}
+        </div>
+      </div>
+    )
   }
 }
 </script>
